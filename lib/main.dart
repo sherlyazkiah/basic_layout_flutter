@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Row Expanded Image: Sherly';
+    const String appTitle = 'Row Expanded with Flex: Sherly';
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
@@ -27,7 +27,7 @@ Widget buildRow() =>
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(child: Image.asset('images/pic1.jpg', fit: BoxFit.cover)),
-          Expanded(child: Image.asset('images/pic2.jpg', fit: BoxFit.cover)),
+          Expanded(flex: 2, child: Image.asset('images/pic2.jpg', fit: BoxFit.cover)),
           Expanded(child: Image.asset('images/pic3.jpg', fit: BoxFit.cover)),
         ],
       );
