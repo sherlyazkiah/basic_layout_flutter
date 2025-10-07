@@ -9,19 +9,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Flutter layout demo: Sherly';
+    const String appTitle = 'Row Image: Sherly';
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(title: const Text(appTitle)),
-        body: const Center(
-          child: Text('Hello World'),
+        body: Center(
+          child: buildRow(),
         ),
       ),
     );
   }
 }
 
+Widget buildRow() =>
+      // #docregion row
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset('images/pic1.jpg'),
+          Image.asset('images/pic2.jpg'),
+          Image.asset('images/pic3.jpg'),
+        ],
+      );
+      
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
