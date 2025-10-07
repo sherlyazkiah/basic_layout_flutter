@@ -120,20 +120,38 @@ class MyApp extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(0, 40, 0, 30),
-          height: 600,
-          child: Card(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(width: 440, child: leftColumn),
-                mainImage,
-              ],
-            ),
-          ),
-        ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth > 600) {
+            // Layout lebar (desktop/tablet)
+            return Center(
+              child: Card(
+                margin: const EdgeInsets.all(20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(flex: 2, child: leftColumn),
+                    Expanded(flex: 3, child: mainImage),
+                  ],
+                ),
+              ),
+            );
+          } else {
+            // Layout sempit (HP)
+            return SingleChildScrollView(
+              child: Card(
+                margin: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    mainImage,
+                    leftColumn,
+                  ],
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }
