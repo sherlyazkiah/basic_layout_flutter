@@ -9,13 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Column Image: Sherly';
+    const String appTitle = 'Row Expanded Image: Sherly';
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(title: const Text(appTitle)),
         body: Center(
-          child: buildColumn(),
+          child: buildRow(),
         ),
       ),
     );
@@ -24,11 +24,11 @@ class MyApp extends StatelessWidget {
 
 Widget buildRow() =>
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('images/pic1.jpg'),
-          Image.asset('images/pic2.jpg'),
-          Image.asset('images/pic3.jpg'),
+          Expanded(child: Image.asset('images/pic1.jpg', fit: BoxFit.cover)),
+          Expanded(child: Image.asset('images/pic2.jpg', fit: BoxFit.cover)),
+          Expanded(child: Image.asset('images/pic3.jpg', fit: BoxFit.cover)),
         ],
       );
 
